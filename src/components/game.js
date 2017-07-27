@@ -7,50 +7,50 @@ import GuessList from "./guess-list";
 import InfoModal from "./info-modal";
 
 export default class Game extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      feedback: "Make your guess!",
+	constructor(props) {
+		super(props);
+		this.state = {
+			feedback: "Make your guess!",
 			guessedNumber: '',
-      guesses: [10, 15, 25],
-      question: false
-    };
-  }
+			guesses: [10, 15, 25],
+			question: false
+		};
+	}
 
-  onWhat(question) {
-    this.setState({
-      question: !this.state.question
-    });
-  }
+	onWhat(question) {
+		this.setState({
+			question: !this.state.question
+		});
+	}
 	onSubmit(e) {
 		this.setState({
-			guessedNumber: e
+			guessedNumber: 6808080080
 		})
-		this.state.guesses.push(e);
-		console.log(this.state.guesses);
+		// this.state.guesses.push(e);
+		console.log(this.state.guessedNumber);
 	}
-  onChange(e) {
-    console.log(e.target.value);
-  }
-  // feedbackMethod: function that changes this.state.feedback
+	onChange(e) {
+		console.log(e.target.value);
+	}
+	// feedbackMethod: function that changes this.state.feedback
 
-  render() {
-    if (this.state.question) {
-      console.log(this.state.question);
-      return <InfoModal onClick={e => this.onWhat(e)} />;
-    } else {
-      return (
-        <div>
-          <Header onClick={e => this.onWhat(e)} />
-          <GuessSection
+	render() {
+		if (this.state.question) {
+			console.log(this.state.question);
+			return <InfoModal onClick={e => this.onWhat(e)} />;
+		} else {
+			return (
+				<div>
+					<Header onClick={e => this.onWhat(e)} />
+					<GuessSection
 						onSubmit={this.onSubmit}
-            onChange={this.onChange}
-            feedback={this.state.feedback}
-          />
-          <GuessCount attempts={this.state.guesses.length} />
-          <GuessList guesses={this.state.guesses} />
-        </div>
-      );
-    }
-  }
+						onChange={this.onChange}
+						feedback={this.state.feedback}
+					/>
+					<GuessCount attempts={this.state.guesses.length} />
+					<GuessList guesses={this.state.guesses} />
+				</div>
+			);
+		}
+	}
 }
