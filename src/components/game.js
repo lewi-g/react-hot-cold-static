@@ -43,6 +43,7 @@ export default class Game extends React.Component {
 				<div>
 					<Header onClick={e => this.onWhat(e)} />
 					<GuessSection
+            value={this.state.guessedNumber}
 						onSubmit={this.onSubmit}
 						onChange={this.onChange}
 						feedback={this.state.feedback}
