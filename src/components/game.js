@@ -39,7 +39,7 @@ export default class Game extends React.Component {
 	render() {
         if (!this.state.question) {
             console.log('we are almost there');
-            return <InfoModal/>
+            return <InfoModal/> b
                 } 
         else if (this.state.question) {
         console.log('else if is here!')
