@@ -11,41 +11,38 @@ export default class Game extends React.Component {
         super(props);
         this.state = {
             feedback: 'Make your guess!',
-			attempts: 3,
-			guesses: [10,15,25],
-            question: false
-
-
-
+						attempts: 3,
+						guesses: [10,15,25],
+    	 			question: false
         }
     }
-        onWhat (question) {
+    
+		onWhat (question) {
       this.setState({
-          question: true
+          question: !this.state.question
       });
+			console.log(this.state.question);
   }
 		onChange(e) {
         console.log(e.target.value)
 		}
 
-        onClick(e) {
-
-            
+    onClick(e) {
             return <InfoModal />
-    
         }
 		// feedbackMethod: function that changes this.state.feedback
 
 	render() {
-        if (!this.state.question) {
-            console.log('we are almost there');
-            return <InfoModal/> b
-                } 
-        else if (this.state.question) {
-        console.log('else if is here!')
+         if (this.state.question) {
+           console.log(this.state.question);
+           return <InfoModal onClick={(e) =>this.onWhat(e)}/>
+                  } 
+        else 
+				//if (this.state.question) {
+        {
     return (
         <div>
-            <Header onClick={() => this.onWhat(true)}/>
+            <Header onClick={(e) => this.onWhat(e)}/>
             <GuessSection onChange={this.onChange} feedback={this.state.feedback}/>
             <GuessCount attempts={this.state.attempts} />
             <GuessList guesses={this.state.guesses} />
@@ -53,4 +50,4 @@ export default class Game extends React.Component {
     );
 	}
 }
-
+}
