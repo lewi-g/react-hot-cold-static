@@ -10,14 +10,17 @@ export default class Game extends React.Component {
         super(props);
         this.state = {
             feedback: 'Make your guess!',
-						attempts: 3,
-						guesses: [10,15,25]
+			attempts: 3,
+			guesses: [10,15,25],
+
+
 
         }
     }
 		onChange(e) {
-			console.log('who goes there?');
+        console.log(e.target.value)
 		}
+
 		// feedbackMethod: function that changes this.state.feedback
 
 	render() {
