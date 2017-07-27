@@ -8,7 +8,9 @@ export default function GuessSection(props) {
     return (
         <section>
             <h2 id="feedback">{props.feedback}</h2>
-            <GuessForm />
+            <GuessForm onChange={e => {
+                e.preventDefault;
+                console.log('We are listening');}}/>
         </section>
     );
 }
