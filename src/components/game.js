@@ -10,6 +10,7 @@ export default class Game extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+      gameNumber: '',
 			feedback: "Make your guess!",
 			guessedNumber: '',
 			guesses: [10, 15, 25],
@@ -17,23 +18,34 @@ export default class Game extends React.Component {
 		};
 	}
 
+
 	onWhat(question) {
 		this.setState({
 			question: !this.state.question
 		});
 	}
-	onSubmit(e) {
-		this.setState({
-			guessedNumber: 6808080080
-		})
+	// onChange(e) {
+	// 	this.setState({
+	// 		guessedNumber: e.target.value
+	// 	})
 		// this.state.guesses.push(e);
-		console.log(this.state.guessedNumber);
-	}
+	// 	console.log(this.state.guessedNumber);
+	// }
 	onChange(e) {
-		console.log(e.target.value);
+    this.setState({
+      guessedNumber: e.target.value
+    });
 	}
 	// feedbackMethod: function that changes this.state.feedback
+  evaluateGuessedNumber(e) {
+    // evaluate guessedNUmber against gameNumber and give appropriate feedback
+    // push guessedNumber to guesses
+    //
 
+  }
+  // componentDidMount(){
+  //   make random number and add it to my state
+  // }
 	render() {
 		if (this.state.question) {
 			console.log(this.state.question);
@@ -45,7 +57,7 @@ export default class Game extends React.Component {
 					<GuessSection
             value={this.state.guessedNumber}
 						onSubmit={this.onSubmit}
-						onChange={this.onChange}
+						onChange={e => this.onChange(e)}
 						feedback={this.state.feedback}
 					/>
 					<GuessCount attempts={this.state.guesses.length} />
