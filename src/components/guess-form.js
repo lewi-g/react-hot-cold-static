@@ -6,7 +6,10 @@ export default function GuessForm(props) {
 
   return (
     <form 
-        onSubmit={e => e.preventDefault()} >
+        onSubmit={e => {
+          e.preventDefault();
+          props.onSubmit(e);
+          }} >
       <input type="text" name="userGuess" id="userGuess"
         className="text" maxLength="3" autoComplete="off"
         placeholder="Enter your Guess" required

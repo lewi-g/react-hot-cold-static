@@ -8,7 +8,7 @@ import './header.css';
 export default function Header(props) {
     return (
         <header>
-            <TopNav onClick={props.onClick}/>
+            <TopNav onClick={props.onClick} resetGame={props.resetGame}/>
             <h1>HOT or COLD</h1>
         </header>
     );
